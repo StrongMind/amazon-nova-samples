@@ -8,6 +8,10 @@ from aws_sdk_bedrock_runtime.client import BedrockRuntimeClient, InvokeModelWith
 from aws_sdk_bedrock_runtime.models import InvokeModelWithBidirectionalStreamInputChunk, BidirectionalInputPayloadPart
 from aws_sdk_bedrock_runtime.config import Config, HTTPAuthSchemeResolver, SigV4AuthScheme
 from smithy_aws_core.credentials_resolvers.environment import EnvironmentCredentialsResolver
+#dotenv
+from dotenv import load_dotenv
+
+load_dotenv()
 
 # Audio configuration
 INPUT_SAMPLE_RATE = 16000
@@ -90,9 +94,10 @@ class SimpleNovaSonic:
                 "sampleRateHertz": 24000,
                 "sampleSizeBits": 16,
                 "channelCount": 1,
-                "voiceId": "matthew",
+                "voiceId": "tiffany",
                 "encoding": "base64",
-                "audioType": "SPEECH"
+                "audioType": "SPEECH",
+                "speechRate": 0.8
               }}
             }}
           }}
@@ -119,12 +124,13 @@ class SimpleNovaSonic:
         '''
         await self.send_event(text_content_start)
         
-        system_prompt = "You are a friendly assistant. The user and you will engage in a spoken dialog " \
-            "exchanging the transcripts of a natural real-time conversation. Keep your responses short, " \
-            "generally two or three sentences for chatty scenarios."
+        # Read system prompt from file
+        with open('luna_prompt', 'r') as file:
+            system_prompt = file.read()
         
-
-
+        # Escape the prompt for JSON
+        system_prompt = json.dumps(system_prompt)[1:-1]  # Remove the outer quotes
+        
         text_input = f'''
         {{
             "event": {{
