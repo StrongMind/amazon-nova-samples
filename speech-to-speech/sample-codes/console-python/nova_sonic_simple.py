@@ -4,6 +4,7 @@ import base64
 import json
 import uuid
 import pyaudio
+import glob
 from aws_sdk_bedrock_runtime.client import BedrockRuntimeClient, InvokeModelWithBidirectionalStreamOperationInput
 from aws_sdk_bedrock_runtime.models import InvokeModelWithBidirectionalStreamInputChunk, BidirectionalInputPayloadPart
 from aws_sdk_bedrock_runtime.config import Config, HTTPAuthSchemeResolver, SigV4AuthScheme
@@ -34,6 +35,7 @@ class SimpleNovaSonic:
         self.audio_queue = asyncio.Queue()
         self.role = None
         self.display_assistant_text = False
+        self.prompt_file = None
         
     def _initialize_client(self):
         """Initialize the Bedrock client."""
@@ -53,8 +55,9 @@ class SimpleNovaSonic:
         )
         await self.stream.input_stream.send(event)
     
-    async def start_session(self):
+    async def start_session(self, prompt_file=None):
         """Start a new session with Nova Sonic."""
+        self.prompt_file = prompt_file
         if not self.client:
             self._initialize_client()
             
@@ -125,8 +128,11 @@ class SimpleNovaSonic:
         await self.send_event(text_content_start)
         
         # Read system prompt from file
-        with open('luna_prompt', 'r') as file:
-            system_prompt = file.read()
+        if self.prompt_file:
+            with open(self.prompt_file, 'r') as file:
+                system_prompt = file.read()
+        else:
+            system_prompt = "You are a friendly assistant. The user and you will engage in a spoken dialog exchanging the transcripts of a natural real-time conversation. Keep your responses short, generally two or three sentences for chatty scenarios."
         
         # Escape the prompt for JSON
         system_prompt = json.dumps(system_prompt)[1:-1]  # Remove the outer quotes
@@ -339,11 +345,33 @@ class SimpleNovaSonic:
             await self.end_audio_input()
 
 async def main():
+    # List available prompts
+    prompt_files = glob.glob('prompts/*.txt')
+    if not prompt_files:
+        print("No prompt files found in the prompts directory!")
+        return
+        
+    print("\nAvailable prompts:")
+    for i, file in enumerate(prompt_files, 1):
+        print(f"{i}. {os.path.basename(file)}")
+    
+    # Get user selection
+    while True:
+        try:
+            choice = int(input("\nSelect a prompt number: "))
+            if 1 <= choice <= len(prompt_files):
+                break
+            print("Invalid choice. Please try again.")
+        except ValueError:
+            print("Please enter a number.")
+    
+    selected_prompt = prompt_files[choice - 1]
+    
     # Create Nova Sonic client
     nova_client = SimpleNovaSonic()
     
-    # Start session
-    await nova_client.start_session()
+    # Start session with selected prompt
+    await nova_client.start_session(selected_prompt)
     
     # Start audio playback task
     playback_task = asyncio.create_task(nova_client.play_audio())
