@@ -1,19 +1,24 @@
 Use the following prompt to guide a generative AI in creating an engaging audio script for 3 grade students. Do not return anything except the script, so do not include a title. The prompt is structured to ensure an enthusiastic tone, clear explanations, relatable examples, and interactive elements.
 
+This script should function as a conversational tutor, able to:
+Let the student ask questions at any time and receive helpful, friendly answers
+Let the student choose to skip the summary and go directly to the check-for-understanding section
+Give personalized feedback based on student responses to questions, with encouragement, redirection, or reinforcement as needed
+
 You are teaching a lesson based on the following learning component content:
 
 Direct Instruction: Identify Long Vowel Patterns Words with Long Vowel Patterns
-Remember, long vowels say their name, like the a in "rain" or the o in "road." 
+Remember, long vowels say their name, like the a in "rain" or the o in "road."
 
-Longer words can have different long vowel patterns in their syllables. 
+Longer words can have different long vowel patterns in their syllables.
 
-Let's look at some examples! 
+Let's look at some examples!
 
-Read this word out loud. 
+Read this word out loud.
 
-playmate 
+playmate
 
-The word has two syllables. 
+The word has two syllables.
 
 play / mate
 
@@ -43,23 +48,16 @@ The first and second syllables have short vowel sounds.
 Let's look at more examples of multisyllabic words with long vowel patterns. Read each one out loud.
 
 long a: holiday
-
 long e: engineer
-
 long i: midnight
-
 long o: alone
-
 long u: nephew
 
 Here are some words with long vowel patterns and sounds in more than one syllable. Read them out loud.
 
 rain / bow
-
 room / mate
-
 might / y
-
 road / side
 
 Read "A Day of Fun"
@@ -78,11 +76,8 @@ Think about It
 Read these words out loud:
 
 neighbor
-
 cheerful
-
 railway
-
 mighty
 
 Find the long vowel sounds and patterns in the words.
@@ -90,6 +85,8 @@ Find the long vowel sounds and patterns in the words.
 Summarize the above course material into a lively audio narration for a Grade K-5 audience. Write the script in the voice of the most engaging, enthusiastic teacher the students have ever had - one who is encouraging and excited about the topic, but is not cheesy. Use natural speech elements like "Well," "You know," or "Actually" to simulate real conversation. Emphasize important information by using phrases like, 'The most important thing is,' or 'This really matters,' or 'I want you to remember this part.' These words help people know what to pay attention to. Design your content so that it is easier to understand when heard, rather than when read. Do not rely on visual formatting or indications. If you ask the student to repeat a word or phrase, pause to allow the student time to repeat.
 
 Follow these guidelines in your script:
+
+Phonics: When explaining phonics patterns, do not read isolated letter combinations (like "a_e") unless paired with a word example. Instead, describe how the sound works using simple words and examples that are easy to pronounce with TTS voice models. Focus on real-word usage and avoid unnatural pauses or spelling.
 
 Structure: Begin with a fun, attention-grabbing introduction that hooks the listeners, introduces the topic, and explains why it's exciting or important. Then cover the main points of the content in a logical order, and end with a brief, encouraging conclusion that recaps what was learned.
 
@@ -101,7 +98,13 @@ Real-World Examples: Include real-life examples or analogies that children can r
 
 Vivid Imagery: Use vivid imagery and descriptive language to paint mental pictures as you speak, helping students visualize the content. Describe scenes, objects, or processes in a colorful way - for example, "Imagine a tiny seed sprouting into a tall, green plant reaching for the sky." Such descriptions stimulate the listener's imagination and make the lesson more engaging and fun.
 
-Interactive Questions: At the end of the script, insert 3-5 "check for understanding" questions directed at the student. After explaining a key idea or section, ask a brief, age-appropriate question to engage the child and encourage them to think (e.g., "What do you think will happen next?" or "Can you remember what that word means?"). These should be open-ended or yes/no questions that prompt the student to reflect and ensure they're following along. Wait a moment after each question (in the script, indicate a short pause) to give the student a chance to think.
+Interactive Questions: At the end of the script, insert 3-5 "check for understanding" questions directed at the student. After explaining a key idea or section, ask a brief, age-appropriate question to engage the child and encourage them to think (e.g., "What do you think will happen next?" or "Can you remember what that word means?"). These should be open-ended or yes/no questions that prompt the student to reflect and ensure they're following along. After each check-for-understanding question, insert a short pause to allow the student to think or respond. Use a system message like: “[Pause here for student response]”. 
+
+If the student answers, provide immediate feedback: 
+- If correct, give enthusiastic praise and reinforce the concept. 
+- If incorrect, respond gently with encouragement, a hint, or a clarifying follow-up question.
+
+Do not rush through the questions—always allow space for interaction.
 
 Pacing & Sound Cues (Optional): Feel free to include directions for pacing or sound to enhance the listening experience. You can indicate pauses or changes in tone for dramatic effect (e.g., "[pause for a moment]" before an important point) or suggest occasional sound effects or background sounds relevant to the content to spark interest - for example, "[sound of rain]" if the script talks about the water cycle, or a quick "whoosh" if something fast is described. These fun audio cues can captivate young learners, but use them sparingly so they don't distract from the lesson.
 

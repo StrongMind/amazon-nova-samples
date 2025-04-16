@@ -1,56 +1,41 @@
-Use the following prompt to guide a generative AI in creating an engaging audio script for 1st grade students. Do not return anything except the script, so do not include a title. The prompt is structured to ensure an enthusiastic tone, clear explanations, relatable examples, and interactive elements: 
-
-This script should function as a conversational tutor, able to:
-Let the student ask questions at any time and receive helpful, friendly answers
-Let the student choose to skip the summary and go directly to the check-for-understanding section
-Give personalized feedback based on student responses to questions, with encouragement, redirection, or reinforcement as needed
+Use the following prompt to guide a generative AI in creating an engaging audio script for Kindergarten grade students. Do not return anything except the script, so do not include a title. The prompt is structured to ensure an enthusiastic tone, clear explanations, relatable examples, and interactive elements: 
 
 You are teaching a lesson based on the following learning component content:
 
-Direct Instruction: Mix Different States of Matter
+Direct Instruction: Add and Subtract Using Number Lines
 
 Vocabulary
 
-mixture
-something made of two or more things and can be separated
+tick mark
+a small line, or mark, on a number line that shows where numbers are
 
-dissolve
-to completely mix with a liquid
+The arrow in this picture is pointing to a tick mark.
 
-Matter Can be Mixed
-You can put matter together so it is in the same place. This is called mixing. Some kinds of matter act differently when put together.
+point
+a place on a number line marked with a dot
 
-You are going to look at what happens when different kinds of matter are mixed.
+The dot on this number line is showing the point 2.
 
-Mixing Solids Together
-When you put solids together, it is called a mixture. In a mixture, each solid keeps its properties.
+plot
+to place a point on the number line
 
-Look at this salad. It is made up of different solids. You can see lettuce, tomatoes, olives, and cheese.
+If you plot 4 on a number line, you put a dot at 4 like this.
 
-Let's say you don't like olives. Could you take them out of the salad? Of course!
+The Number Line
 
-Let's say you only want to eat one thing at a time.
-Could you sort the vegetables and cheese?
-Could you put them on different dishes? Of course!
+A number line is just like its name says. It's a line with numbers on it!
 
-You can separate solids. You can also sort them.
+But the numbers are written a special way.
+The numbers must have the same amount of space between them.
 
-Mixing Solids with Liquids
-You can also mix solids with liquids. Some solids will keep their properties in liquids. Other solids will not. These are still called mixtures.
+Here is a number line from 0 to 5.
 
-Look at the marbles in a glass of water. Each marble keeps its properties. The marble is still a marble, even in water.
+The number line has little lines above the numbers. Those lines are called tick marks.
+Tick marks show you the place on the line where a number is.
 
-Some Solids Dissolve
-Some solids will dissolve in water. This means you can't easily see them. But the solids are still in the water.
+A place on the number line is called a point. When we plot a point, we show where the point is by drawing a dot.
 
-Look at the cup of tea. The tea is a liquid. The person is stirring in sugar. Sugar is a solid. The sugar dissolves in the liquid.
-
-Solids dissolved in water are also mixtures.
-
-Other Liquids in Water
-Some liquids don't dissolve in water. Oil is a liquid. It floats on water. The oil does not mix or dissolve in water.
-
-You would have to be careful, but you could separate the oil from the water.
+This number line has a point plotted at 1.
 
 Summarize the above course material into a lively audio narration for a Grade K-5 audience. Write the script in the voice of the most engaging, enthusiastic teacher the students have ever had - one who is encouraging and excited about the topic, but is not cheesy. Use natural speech elements like "Well," "You know," or "Actually" to simulate real conversation. Emphasize important information by using phrases like, 'The most important thing is,' or 'This really matters,' or 'I want you to remember this part.' These words help people know what to pay attention to. Design your content so that it is easier to understand when heard, rather than when read. Do not rely on visual formatting or indications. If you ask the student to repeat a word or phrase, pause to allow the student time to repeat.
 

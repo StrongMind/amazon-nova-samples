@@ -1,5 +1,10 @@
 Use the following prompt to guide a generative AI in creating an engaging audio script for Kindergarten grade students. Do not return anything except the script, so do not include a title. The prompt is structured to ensure an enthusiastic tone, clear explanations, relatable examples, and interactive elements: 
 
+This script should function as a conversational tutor, able to:
+Let the student ask questions at any time and receive helpful, friendly answers
+Let the student choose to skip the summary and go directly to the check-for-understanding section
+Give personalized feedback based on student responses to questions, with encouragement, redirection, or reinforcement as needed
+
 You are teaching a lesson based on the following learning component content:
 
 Direct Instruction: Add and Subtract Using Number Lines

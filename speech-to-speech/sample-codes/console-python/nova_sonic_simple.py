@@ -36,6 +36,7 @@ class SimpleNovaSonic:
         self.role = None
         self.display_assistant_text = False
         self.prompt_file = None
+        self.barge_in = False
         
     def _initialize_client(self):
         """Initialize the Bedrock client."""
@@ -100,7 +101,9 @@ class SimpleNovaSonic:
                 "voiceId": "tiffany",
                 "encoding": "base64",
                 "audioType": "SPEECH",
-                "speechRate": 0.8
+                "speechRate": 0.8,
+                "pauseBetweenSentences": 2.0,
+                "bargeInEnabled": true
               }}
             }}
           }}
@@ -182,7 +185,9 @@ class SimpleNovaSonic:
                         "sampleSizeBits": 16,
                         "channelCount": 1,
                         "audioType": "SPEECH",
-                        "encoding": "base64"
+                        "encoding": "base64",
+                        "bargeInEnabled": true,
+                        "bargeInThreshold": 0.5
                     }}
                 }}
             }}
@@ -281,6 +286,9 @@ class SimpleNovaSonic:
                            
                             if (self.role == "ASSISTANT" and self.display_assistant_text):
                                 print(f"Assistant: {text}")
+                                # Check for barge-in in text
+                                if '{ "interrupted" : true }' in text:
+                                    self.barge_in = True
                             elif self.role == "USER":
                                 print(f"User: {text}")
                         
@@ -304,8 +312,24 @@ class SimpleNovaSonic:
         
         try:
             while self.is_active:
-                audio_data = await self.audio_queue.get()
-                stream.write(audio_data)
+                # Check for barge-in flag
+                if self.barge_in:
+                    # Clear the audio queue
+                    while not self.audio_queue.empty():
+                        try:
+                            self.audio_queue.get_nowait()
+                        except asyncio.QueueEmpty:
+                            break
+                    self.barge_in = False
+                    # Small sleep after clearing
+                    await asyncio.sleep(0.05)
+                    continue
+                
+                try:
+                    audio_data = await asyncio.wait_for(self.audio_queue.get(), timeout=0.1)
+                    stream.write(audio_data)
+                except asyncio.TimeoutError:
+                    continue
         except Exception as e:
             print(f"Error playing audio: {e}")
         finally:
